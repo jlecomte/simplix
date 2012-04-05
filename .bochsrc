@@ -1,0 +1,24 @@
+megs: 8
+romimage: file=/usr/local/share/bochs/BIOS-bochs-latest
+vgaromimage: file=/usr/local/share/bochs/VGABIOS-elpin-2.40
+
+floppya: 1_44="floppy.img", status=inserted
+ata0-master: type=disk, path="disk.img", mode=flat, cylinders=10, heads=16, spt=63
+ata0-slave: type=cdrom, path="/home/julien/Downloads/ubuntu-8.04-desktop-i386.iso", status=inserted
+ata1: enabled=0, ioaddr1=0x170, ioaddr2=0x370, irq=15
+
+boot: floppy
+cpu: count=1, ips=10000000
+mouse: enabled=0
+log: out.bochs
+
+# Make the PIT emulated by bochs tick at the correct interval. Note that
+# enabling this feature sacrifices reproducibility, which may be a problem
+# at times when tracking a specific bug.
+clock: sync=realtime, time0=utc
+
+# For debugging with gdb.
+# Keep this line when using bochs-gdb.
+# Comment it out when using bochs-dbg
+# See http://bochs.sourceforge.net/doc/docbook/user/bochsrc.html#BOCHSOPT-GDBSTUB
+# gdbstub: enabled=1, port=1234, text_base=0, data_base=0, bss_base=0
