@@ -1,0 +1,6 @@
+*.o
+simplix.elf
+bootsect.bin
+kernel.bin
+floppy.img
+out.bochs
